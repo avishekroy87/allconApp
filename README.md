@@ -1,0 +1,2 @@
+# allconApp
+Allcon app typescript.
