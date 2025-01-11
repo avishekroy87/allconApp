@@ -1,5 +1,12 @@
-import { useState, useRef } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import './App.css'
+import Users from './components/Users';
+
+// interface IDUser {
+//   userID: number;
+//   name: string;
+//   email: string;
+// }
 
 function App() {
   const name = useRef<HTMLInputElement>(null);
@@ -9,6 +16,17 @@ function App() {
   const coverletter = useRef<HTMLTextAreaElement>(null);
 
   const [response, setResponse] = useState<any>(null);
+  const [data, setData] = useState<any[]>([]);
+
+  useEffect(() => {
+    console.log('App mounted');
+    fetch('https://jsonplaceholder.typicode.com/users')
+    .then(response => response.json())
+    .then(data => {
+      console.log(data);
+      setData(data);
+    });
+  },[data]);
   
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault()
@@ -18,7 +36,7 @@ function App() {
     formData.append('phone', phone.current?.value || '');
     formData.append('resume', resume.current?.files?.[0] || '');
     formData.append('coverletter', coverletter.current?.value || '');
-
+    
     fetch('https://reqres.in/api/users', {
       mode: 'no-cors',
       method: 'POST',
@@ -37,6 +55,8 @@ function App() {
     // });
   }
 
+
+  
   return (
     <>
       <div className="App">
@@ -72,7 +92,9 @@ function App() {
           </form>
         </div>
       </div>
-      
+      {data.map(user => (
+        <Users key={user.id} user={user} />
+      ))}
     </>
   )
 }
