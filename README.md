@@ -1,2 +1,1 @@
-# allconApp
-Allcon app typescript.
+#1. React + Typescript
