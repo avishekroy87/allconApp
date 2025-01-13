@@ -1,6 +1,9 @@
 import { useState, useRef, useEffect } from 'react'
 import './App.css'
 import Users from './components/Users';
+import ThemeChild from './components/ThemeChild';
+import { ThemeContext } from './ThemeContext';
+
 
 // interface IDUser {
 //   userID: number;
@@ -55,11 +58,11 @@ function App() {
     // });
   }
 
-
+const [theme, setTheme] = useState('light');
   
   return (
     <>
-      <div className="App">
+      <div className={`App `+ theme}>
         <header className="App-header">
           <h1>Submit your Application</h1>
         </header>
@@ -95,6 +98,10 @@ function App() {
       {data.map(user => (
         <Users key={user.id} user={user} />
       ))}
+      <ThemeContext.Provider value={{theme , setTheme}}>
+        <ThemeChild />
+      </ThemeContext.Provider>
+      
     </>
   )
 }
