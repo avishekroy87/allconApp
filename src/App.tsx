@@ -25,8 +25,8 @@ function App() {
     
   },[]);
 
-  const jsonPlaceholder = () => {
-    fetch('https://jsonplaceholder.typicode.com/users')
+  const jsonPlaceholder = async () => {
+    await fetch('https://jsonplaceholder.typicode.com/users')
     .then(response => response.json())
     .then(data => {
       console.log(data);
@@ -34,6 +34,22 @@ function App() {
     });
   }
   
+  const formApicall = async (formData: FormData) => {
+    fetch('https://reqres.in/api/users', {
+      mode: 'no-cors',
+      method: 'POST',
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(Object.fromEntries(formData.entries()))
+    })
+   .then(response => response.json())
+    .then(data => {
+      console.log(data);
+      setResponse(data);
+    });
+  }
+
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault()
     const formData = new FormData();
@@ -43,19 +59,7 @@ function App() {
     formData.append('resume', resume.current?.files?.[0] || '');
     formData.append('coverletter', coverletter.current?.value || '');
     
-    fetch('https://reqres.in/api/users', {
-      mode: 'no-cors',
-      method: 'POST',
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify(formData)
-    })
-    // .then(response => response.json())
-    .then(data => {
-      console.log(data);
-      setResponse(data);
-    });
+    formApicall(formData);
     
   }
 
@@ -96,14 +100,18 @@ const [theme, setTheme] = useState('light');
           </form>
         </div>
       </div>
+      <p>&nbsp;==========================</p>
       {data.map(user => (
         <Users key={user.id} user={user} />
       ))}
       <ThemeContext.Provider value={{theme , setTheme}}>
         <ThemeChild />
       </ThemeContext.Provider>
+      <p>&nbsp;==========================</p>
       <Employess />
+      <p>&nbsp;==========================</p>
       <SampleUse />
+      <p>&nbsp;==========================</p>
       <SuperEmployees />
     </>
   )
