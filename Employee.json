@@ -1,0 +1,8 @@
+{
+    "employee":[
+        {"empid": 1234, "name": "User 1", "age": 23, "salary": 0, "designation": "Test", "department": "IT", "location": "Kol", "email": "user1@testmail.com", "phone": 0, "address": "123 Test Address", "status": "Active"},
+        {"empid": 1235, "name": "User 2", "age": 24, "salary": 0, "designation": "Test", "department": "IT", "location": "Kol", "email": "user2@testmail.com", "phone": 0, "address": "123 Test Address", "status": "Active"},
+        {"empid": 1236, "name": "User 3", "age": 25, "salary": 0, "designation": "Test", "department": "IT", "location": "Kol", "email": "user3@testmail.com", "phone": 0, "address": "123 Test Address", "status": "Active"}
+        
+    ]
+}

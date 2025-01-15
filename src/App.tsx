@@ -1,16 +1,13 @@
-import { useState, useRef, useEffect } from 'react'
+import { useState, useRef, useEffect, useLayoutEffect } from 'react'
 import './App.css'
 import Users from './components/Users';
 import ThemeChild from './components/ThemeChild';
 import { ThemeContext } from './ThemeContext';
 import Employess from './components/Employess';
+import SampleUse from './components/SampleUse';
+import SuperEmployees from './components/SuperEmployees';
 
 
-// interface IDUser {
-//   userID: number;
-//   name: string;
-//   email: string;
-// }
 
 function App() {
   const name = useRef<HTMLInputElement>(null);
@@ -23,14 +20,19 @@ function App() {
   const [data, setData] = useState<any[]>([]);
 
   useEffect(() => {
-    console.log('App mounted');
+    // console.log('App mounted');
+    jsonPlaceholder();
+    
+  },[]);
+
+  const jsonPlaceholder = () => {
     fetch('https://jsonplaceholder.typicode.com/users')
     .then(response => response.json())
     .then(data => {
       console.log(data);
       setData(data);
     });
-  },[data]);
+  }
   
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault()
@@ -54,9 +56,7 @@ function App() {
       console.log(data);
       setResponse(data);
     });
-    // .catch(error => {
-    //   console.error(error);
-    // });
+    
   }
 
 const [theme, setTheme] = useState('light');
@@ -103,6 +103,8 @@ const [theme, setTheme] = useState('light');
         <ThemeChild />
       </ThemeContext.Provider>
       <Employess />
+      <SampleUse />
+      <SuperEmployees />
     </>
   )
 }

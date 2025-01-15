@@ -21,14 +21,14 @@ function Employess() {
             <td>Id</td>
             <td>Name</td>
         </tr>
-       {employees.map(emp=>{
+      {employees.map((emp,id) => {
               return(
                 <tr>
-                     <td>{emp.id}</td>
-                     <td>{emp.name}</td>
+                <td>{emp.id}</td>
+                <td>{emp.name}</td>
                 </tr>
               )
-       })}
+      })}
       </table>
       <button onClick={handleAddemployee}>Add Employee</button>
     </div>
