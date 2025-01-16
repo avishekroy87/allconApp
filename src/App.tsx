@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect, useLayoutEffect } from 'react'
+import usePrevious from './hooks/usePrevious';
 import './App.css'
 import Users from './components/Users';
 import ThemeChild from './components/ThemeChild';
@@ -18,7 +19,8 @@ function App() {
 
   const [response, setResponse] = useState<any>(null);
   const [data, setData] = useState<any[]>([]);
-
+  const customehook = usePrevious(data);
+  console.log('Previous data:', customehook);
   useEffect(() => {
     // console.log('App mounted');
     jsonPlaceholder();
