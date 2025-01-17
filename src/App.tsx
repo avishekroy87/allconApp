@@ -7,6 +7,7 @@ import { ThemeContext } from './ThemeContext';
 import Employess from './components/Employess';
 import SampleUse from './components/SampleUse';
 import SuperEmployees from './components/SuperEmployees';
+import Fetchcomponent from './components/Fetchcomponent';
 
 
 
@@ -115,6 +116,8 @@ const [theme, setTheme] = useState('light');
       <SampleUse />
       <p>&nbsp;==========================</p>
       <SuperEmployees />
+      <p>&nbsp;==========================</p>
+      <Fetchcomponent />
     </>
   )
 }
