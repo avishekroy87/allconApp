@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect, useLayoutEffect } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import usePrevious from './hooks/usePrevious';
 import './App.css'
 import Users from './components/Users';

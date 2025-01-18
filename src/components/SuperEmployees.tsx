@@ -56,7 +56,3 @@ function SuperEmployees() {
 }
 
 export default SuperEmployees
-function then(arg0: (response: { data: any; }) => void) {
-    throw new Error('Function not implemented.');
-}
-
