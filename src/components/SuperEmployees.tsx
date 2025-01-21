@@ -52,7 +52,7 @@ function SuperEmployees() {
             </table>
             <button className='btn btn-primary' onClick={addEmployee}>Add Employee</button>
     </div>
-  )
+)
 }
 
 export default SuperEmployees
