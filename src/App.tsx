@@ -8,6 +8,7 @@ import Employess from './components/Employess';
 import SampleUse from './components/SampleUse';
 import SuperEmployees from './components/SuperEmployees';
 import Fetchcomponent from './components/Fetchcomponent';
+import TsApp from './components/TsApp';
 
 
 
@@ -118,6 +119,8 @@ const [theme, setTheme] = useState('light');
       <SuperEmployees />
       <p>&nbsp;==========================</p>
       <Fetchcomponent />
+      <p>&nbsp;==========================</p>
+      <TsApp student={{id: 1, name: 'User1'}}/>
     </>
   )
 }
