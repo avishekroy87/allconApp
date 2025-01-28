@@ -9,6 +9,7 @@ import SampleUse from './components/SampleUse';
 import SuperEmployees from './components/SuperEmployees';
 import Fetchcomponent from './components/Fetchcomponent';
 import TsApp from './components/TsApp';
+import Refinesearch from './components/Refinesearch';
 
 
 
@@ -121,6 +122,8 @@ const [theme, setTheme] = useState('light');
       <Fetchcomponent />
       <p>&nbsp;==========================</p>
       <TsApp student={{id: 1, name: 'User1'}}/>
+      <p>&nbsp;==========================</p>
+      <Refinesearch />
     </>
   )
 }
