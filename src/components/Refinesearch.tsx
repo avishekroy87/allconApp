@@ -10,10 +10,11 @@ function Refinesearch({}: Props) {
 const fileteredResult = React.useMemo(() => {
     return Items.filter(itemuser => itemuser.toLowerCase().includes(keyword.toLowerCase()));
   }, [Items, keyword]);
-    function handleKeyup(event: React.KeyboardEvent<HTMLInputElement>) {
-        setKeyword(event.currentTarget.value);
 
-        }
+
+    const handleKeyup = (event: React.KeyboardEvent<HTMLInputElement>) => {
+        setKeyword(event.currentTarget.value);
+    }
 
   return (
     <div>
